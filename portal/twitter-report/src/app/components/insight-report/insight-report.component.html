@@ -1,0 +1,48 @@
+<p>
+  <ngb-alert type="warning" [dismissible]="false">{{ model.length }} in the queue</ngb-alert>
+</p>
+<p>
+  <ngb-alert type="warning" [dismissible]="false">Average tweets per minute {{ tweetsPerMinutesReport }}</ngb-alert>
+</p>
+<p>
+  <ngb-alert type="warning" [dismissible]="false">Average tweets per seconds {{ tweetsPerSecondsReport }}</ngb-alert>
+</p>
+<p>
+  <ngb-alert type="info" [dismissible]="false">Showing only 20 records from the queue for testing porpoise</ngb-alert>
+</p>
+
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Twitter ID</th>
+        <th scope="col">Twitter Text</th>
+        <th scope="col">Tweet Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of model.slice(0, 20) ; index as i">
+        <th scope="row">{{ item.id }}</th>
+        <td>
+          {{ item.text }}
+        </td>
+        <td>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(content, item)">Launch demo modal</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Twitter Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="selectedTwitter" class="modal-body">
+    <p>{{selectedTwitter.text}}</p>
+  </div>
+</ng-template>
