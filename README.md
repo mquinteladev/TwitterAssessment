@@ -21,6 +21,6 @@
 **API Application**
 
  - In the app setting, you can find the Twitter section, replace your
-   desired values, and use current is valid.
+   desired values, use current is valid too.
  - Existing unit test integration was creating for the development
    porpoise; unit test coverage is not near 10% as per time constraints.
